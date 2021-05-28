@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#anchorPaneOnKeyPressed" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base.MainPageController">
+   <children>
+      <SplitPane dividerPositions="0.7857142857142857" layoutX="560.0" layoutY="535.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <SplitPane dividerPositions="0.7296238244514106" layoutX="492.0" layoutY="37.0" prefHeight="550.0" prefWidth="688.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <BorderPane prefHeight="384.0" prefWidth="803.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <center>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                       <content>
+                                          <Canvas fx:id="canvas1" height="200.0" onMouseClicked="#canvas1OnMouseClicked" onMouseMoved="#canvas1OnMouseMoved" width="200.0" />
+                                       </content>
+                                    </ScrollPane>
+                                 </center>
+                                 <left>
+                                    <Accordion BorderPane.alignment="CENTER">
+                                      <panes>
+                                        <TitledPane fx:id="titledPaneGeneralSettings" alignment="TOP_LEFT" animated="false" text="Gerenal settings">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <GridPane layoutX="9.0" layoutY="6.0" prefHeight="509.0" prefWidth="200.0">
+                                                        <columnConstraints>
+                                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        </columnConstraints>
+                                                        <rowConstraints>
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        </rowConstraints>
+                                                         <children>
+                                                            <Slider fx:id="sliderPointSize" blockIncrement="1.0" min="1.0" showTickLabels="true" showTickMarks="true" value="10.0" GridPane.columnIndex="1" />
+                                                            <ColorPicker fx:id="colorPickerInnerPointColor" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                            <ColorPicker fx:id="colorPickerOuterPointColor" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                            <ColorPicker fx:id="colorPickerObjectColor" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                            <ColorPicker fx:id="colorPickerObjectHover" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                            <ColorPicker fx:id="colorPickerObjectShow" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                            <Label fx:id="labelInnerPointColor" prefHeight="86.0" prefWidth="116.0" text="Inner point color" wrapText="true" GridPane.rowIndex="1" />
+                                                            <Label fx:id="labelOuterPointColor" prefHeight="84.0" prefWidth="115.0" text="Outer point color" wrapText="true" GridPane.rowIndex="2" />
+                                                            <Label fx:id="labelObjectColor" prefHeight="66.0" prefWidth="99.0" text="Object color " wrapText="true" GridPane.rowIndex="3" />
+                                                            <Label fx:id="labelObjectHover" prefHeight="61.0" prefWidth="98.0" text="Object (hover)" wrapText="true" GridPane.rowIndex="4" />
+                                                            <Label fx:id="labelObjectShow" prefHeight="62.0" prefWidth="99.0" text="Object (show)" wrapText="true" GridPane.rowIndex="5" />
+                                                            <Label fx:id="labelPointSize" prefHeight="69.0" prefWidth="116.0" text="Point size" wrapText="true" />
+                                                            <TextField fx:id="textFieldObjectOpacity" promptText="[0 ; 1]" text="1" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                                            <TextField fx:id="textFieldHoverOpacity" promptText="[0 ; 1]" text="0.5" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                                            <Label fx:id="labelObjectOpacity" prefHeight="62.0" prefWidth="100.0" text="Object opacity" wrapText="true" GridPane.rowIndex="6" />
+                                                            <Label fx:id="labelHoverOpacity" prefHeight="59.0" prefWidth="99.0" text="Hover opacity" wrapText="true" GridPane.rowIndex="7" />
+                                                            <Label fx:id="labelActiveOpacity" prefHeight="72.0" prefWidth="111.0" text="Active opacity" wrapText="true" GridPane.rowIndex="8" />
+                                                            <TextField fx:id="textFieldActiveOpacity" promptText="[0 ; 1]" text="0.7" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                                         </children>
+                                                      </GridPane>
+                                                   </children>
+                                                </AnchorPane>
+                                          </content>
+                                             <padding>
+                                                <Insets top="25.0" />
+                                             </padding>
+                                        </TitledPane>
+                                        <TitledPane fx:id="titledPaneObjectsPoints" alignment="TOP_LEFT" animated="false" contentDisplay="TOP" maxHeight="368.0" prefHeight="304.0" prefWidth="202.0" text="Objects points setting">
+                                          <content>
+                                                <Accordion>
+                                                  <panes>
+                                                    <TitledPane fx:id="titledPaneSbSSettingMode" alignment="TOP_LEFT" animated="false" contentDisplay="TOP" maxHeight="270.0" maxWidth="202.0" prefHeight="270.0" prefWidth="202.0" text="Step by step setting mode">
+                                                      <content>
+                                                        <AnchorPane>
+                                                               <children>
+                                                                  <Button fx:id="buttonSbSSettingModeTurnOn" layoutX="13.0" layoutY="14.0" mnemonicParsing="false" onAction="#buttonSbSSettingModeTurnOnOnAction" prefHeight="25.0" prefWidth="182.0" text="Turn on" />
+                                                                  <Button fx:id="buttonSbSSettingModeTurnOff" layoutX="13.0" layoutY="47.0" mnemonicParsing="false" onAction="#buttonSbSSettingModeTurnOffOnAction" prefHeight="25.0" prefWidth="182.0" text="Turn off" />
+                                                                  <Label fx:id="labelSbSStatus" layoutX="14.0" layoutY="83.0" prefHeight="17.0" prefWidth="182.0" text="Status:" />
+                                                                  <ListView fx:id="listViewPoints" editable="true" layoutX="9.0" layoutY="117.0" prefHeight="116.0" prefWidth="182.0" />
+                                                                  <Label fx:id="labelSbSPoints" layoutX="13.0" layoutY="100.0" prefHeight="17.0" prefWidth="182.0" text="Points:" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                      </content>
+                                                    </TitledPane>
+                                                      <TitledPane fx:id="titledPaneManyPointsSettingMode" alignment="TOP_LEFT" animated="false" contentDisplay="TOP" maxHeight="270.0" minHeight="270.0" prefHeight="270.0" text="Many points setting mode">
+                                                         <content>
+                                                            <AnchorPane>
+                                                               <children>
+                                                                  <Button fx:id="buttonManyPointsSettingModeTurnOn" layoutX="13.0" layoutY="24.0" mnemonicParsing="false" onAction="#buttonManyPointsSettingModeTurnOnOnAction" prefHeight="25.0" prefWidth="174.0" text="Turn on (Ctrl + Q)" />
+                                                                  <Button fx:id="buttonManyPointsSettingModeTurnOff" layoutX="13.0" layoutY="57.0" mnemonicParsing="false" onAction="#buttonManyPointsSettingModeTurnOffOnAction" prefHeight="25.0" prefWidth="174.0" text="Turn off (Ctrl + W)" />
+                                                                  <Label fx:id="labelManyPointsStatus" layoutX="13.0" layoutY="88.0" prefWidth="174.0" text="Status:" />
+                                                                  <ListView fx:id="listViewPoints1" editable="true" layoutX="9.0" layoutY="122.0" prefHeight="127.0" prefWidth="182.0" />
+                                                                  <Label fx:id="labelManyPointsPoints" layoutX="13.0" layoutY="105.0" prefWidth="174.0" text="Points:" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </content>
+                                                      </TitledPane>
+                                                    <TitledPane fx:id="titledPaneEnteringPointsSettingMode" alignment="TOP_LEFT" animated="false" contentDisplay="TOP" maxHeight="230.0" maxWidth="202.0" minHeight="230.0" minWidth="202.0" prefHeight="230.0" prefWidth="202.0" text="Entering points setting mode">
+                                                      <content>
+                                                        <AnchorPane>
+                                                               <children>
+                                                                  <Label layoutX="9.0" layoutY="27.0" text="X:" />
+                                                                  <Label layoutX="77.0" layoutY="27.0" text="Y:" />
+                                                                  <TextField fx:id="textFieldEnteringPointsX" layoutX="19.0" layoutY="23.0" prefHeight="25.0" prefWidth="47.0" />
+                                                                  <TextField fx:id="textFieldEnteringPointsY" layoutX="87.0" layoutY="23.0" prefHeight="25.0" prefWidth="47.0" />
+                                                                  <Button fx:id="buttonEnteringPointsAdd" disable="true" layoutX="10.0" layoutY="59.0" mnemonicParsing="false" onAction="#buttonEnteringPointsAddOnAction" prefHeight="25.0" prefWidth="182.0" text="Add point" />
+                                                                  <ListView fx:id="listViewPoints2" editable="true" layoutX="10.0" layoutY="91.0" prefHeight="87.0" prefWidth="182.0" />
+                                                                  <Button fx:id="buttonEnteringPointsDelete" disable="true" layoutX="10.0" layoutY="184.0" mnemonicParsing="false" onAction="#buttonEnteringPointsDeleteOnAction" prefHeight="25.0" prefWidth="182.0" text="Delete previous" />
+                                                                  <Label fx:id="labelEnteringPointsCoordinates" layoutX="14.0" layoutY="223.0" prefHeight="17.0" prefWidth="182.0" text="X: Y:">
+                                                                     <font>
+                                                                        <Font size="24.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </AnchorPane>
+                                                      </content>
+                                                    </TitledPane>
+                                                  </panes>
+                                                </Accordion>
+                                          </content>
+                                        </TitledPane>
+                                        <TitledPane fx:id="titledPaneTextSetting" alignment="TOP_LEFT" animated="false" text="Text setting">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TextField fx:id="textFieldTitleText" layoutX="14.0" layoutY="22.0" prefHeight="25.0" prefWidth="190.0" promptText="setTitleText" text="TitleText" />
+                                                      <TextArea fx:id="textAreaDescription" layoutX="14.0" layoutY="57.0" prefHeight="158.0" prefWidth="190.0" promptText="setDescription" text="Description" wrapText="true" />
+                                                   </children>
+                                                </AnchorPane>
+                                          </content>
+                                        </TitledPane>
+                                        <TitledPane fx:id="titledPaneAddingObject" alignment="TOP_LEFT" animated="false" text="Adding object">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Button fx:id="buttonAddObject" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#buttonAddObjectOnAction" text="Add object" />
+                                                   </children>
+                                                </AnchorPane>
+                                          </content>
+                                        </TitledPane>
+                                      </panes>
+                                    </Accordion>
+                                 </left>
+                              </BorderPane>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="415.0">
+                           <children>
+                              <Accordion layoutX="6.0" layoutY="127.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                <panes>
+                                    <TitledPane fx:id="titledPaneCreatedObjects" animated="false" text="Created objects">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="257.0">
+                                             <children>
+                                                <TableView fx:id="tableViewCreatedObjects" editable="true" layoutX="14.0" layoutY="122.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="tableColumnObjectId" prefWidth="75.0" text="Object's&#10;id" />
+                                                      <TableColumn fx:id="tableColumnObjectTitle" prefWidth="75.0" text="Title" />
+                                                      <TableColumn fx:id="tableColumnObjectDescription" prefWidth="75.0" text="Description" />
+                                                   </columns>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                </TableView>
+                                                <Button fx:id="buttonCreatedObjectsDel" layoutX="70.0" layoutY="14.0" mnemonicParsing="false" onAction="#buttonCreatedObjectsDelOnAction" prefHeight="25.0" prefWidth="35.0" text="Del" />
+                                                <Button fx:id="buttonCreatedObjectsDown" layoutX="20.0" layoutY="14.0" mnemonicParsing="false" onAction="#buttonCreatedObjectsDownOnAction" prefHeight="25.0" prefWidth="25.0" text="↓" />
+                                                <Button fx:id="buttonCreatedObjectsUp" layoutX="45.0" layoutY="14.0" mnemonicParsing="false" onAction="#buttonCreatedObjectsUpOnAction" prefHeight="25.0" prefWidth="25.0" text="↑" />
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </TitledPane>
+                                </panes>
+                              </Accordion>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TabPane layoutX="400.0" layoutY="-16.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <tabs>
+                      <Tab fx:id="tabHTML" text="HTML">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea fx:id="textAreaHTML" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab fx:id="tabCSS" text="CSS">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea fx:id="textAreaCSS" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab fx:id="tabJS" text="JS">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea fx:id="textAreaJS" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="tabBrowser" text="Browser">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <WebView fx:id="webViewBrowser" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <MenuBar maxHeight="25.0" minHeight="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu fx:id="menuFile" mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="menuItemNew" mnemonicParsing="false" onAction="#menuItemNewOnAction" text="New" />
+                  <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#menuItemCloseOnAction" text="Close" />
+            </items>
+          </Menu>
+          <Menu fx:id="menuEdit" mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem fx:id="menuItemUndo" mnemonicParsing="false" onAction="#menuItemUndoOnAction" text="Undo (Ctrl + Z)" />
+                  <MenuItem fx:id="menuItemRedo" mnemonicParsing="false" onAction="#menuItemRedoOnAction" text="Redo (Ctrl + Y)" />
+            </items>
+          </Menu>
+            <Menu fx:id="menuProject" mnemonicParsing="false" text="Project">
+               <items>
+                  <MenuItem fx:id="menuItemInformation" mnemonicParsing="false" onAction="#menuItemInformationOnAction" text="Information" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

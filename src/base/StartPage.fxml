@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane maxHeight="106.0" maxWidth="447.0" minHeight="106.0" minWidth="447.0" prefHeight="106.0" prefWidth="447.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base.StartPageController">
+   <center>
+      <Pane maxHeight="81.0" maxWidth="445.0" minHeight="81.0" minWidth="407.0" prefHeight="81.0" prefWidth="445.0">
+         <children>
+            <TextField fx:id="textField1" layoutX="14.0" layoutY="10.0" prefHeight="25.0" prefWidth="346.0" promptText="Directory path" />
+            <Button fx:id="button1" layoutX="369.0" layoutY="10.0" mnemonicParsing="false" onAction="#button1Click" text="..." />
+            <Button fx:id="button2" disable="true" layoutX="15.0" layoutY="41.0" mnemonicParsing="false" onAction="#button2Click" prefHeight="25.0" prefWidth="416.0" text="Next step" textAlignment="JUSTIFY" />
+            <Button fx:id="button3" layoutX="407.0" layoutY="10.0" mnemonicParsing="false" onAction="#button3Click" text="+" />
+         </children>
+      </Pane>
+   </center>
+   <top>
+      <MenuBar fx:id="menuBar1" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu fx:id="menu1" mnemonicParsing="false" text="Settings">
+            <items>
+                  <Menu fx:id="menu2" mnemonicParsing="false" text="Language">
+                    <items>
+                        <RadioMenuItem fx:id="radioMenuItem1" mnemonicParsing="false" onAction="#radioMenuItem1OnActon" selected="true" text="Default (English)" />
+                        <RadioMenuItem fx:id="radioMenuItem2" mnemonicParsing="false" onAction="#radioMenuItem2OnActon" text="Russian" />
+                    </items>
+                  </Menu>
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>
