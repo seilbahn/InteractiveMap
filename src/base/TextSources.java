@@ -107,7 +107,7 @@ public class TextSources {
                 SAMPLE_PROJECT_BUTTON_ADD = "...";
                 SAMPLE_PROJECT_TEXT_FIELD = "Путь к изображению";
 
-                MAIN_PAGE_TITLE = "Проект: " + GlobalSources.CURRENT_PATH;
+                MAIN_PAGE_TITLE = "Проект: ";
                 MAIN_PAGE_MENU_FILE = "Файл";
                 MAIN_PAGE_MENU_EDIT = "Редактировать";
                 MAIN_PAGE_MENU_PROJECT = "Проект";
@@ -180,7 +180,7 @@ public class TextSources {
                 SAMPLE_PROJECT_BUTTON_ADD = "...";
                 SAMPLE_PROJECT_TEXT_FIELD = "Image path";
 
-                MAIN_PAGE_TITLE = "Project: " + GlobalSources.CURRENT_PATH;
+                MAIN_PAGE_TITLE = "Project: ";
                 MAIN_PAGE_MENU_FILE = "File";
                 MAIN_PAGE_MENU_EDIT = "Edit";
                 MAIN_PAGE_MENU_PROJECT = "Project";

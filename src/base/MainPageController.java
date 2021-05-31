@@ -196,7 +196,7 @@ public class MainPageController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             beforeStartMethod();
-        } catch (IOException e) {
+        } catch (IOException | TemplateException e) {
             e.printStackTrace();
         }
         colorPickerInnerPointColor.setOnAction(event -> colorPointInner = colorPickerInnerPointColor.getValue());
@@ -392,7 +392,7 @@ public class MainPageController implements Initializable {
         }
     }
 
-    private void beforeStartMethod() throws IOException {
+    private void beforeStartMethod() throws IOException, TemplateException {
         jsFileExistenceChecking();
         textSetting();
         Image bgImage = new Image(GlobalSources.CURRENT_IMAGE_PATH);
@@ -432,7 +432,8 @@ public class MainPageController implements Initializable {
         String title = TextSources.MAIN_PAGE_TITLE;
         String image = GlobalSources.CURRENT_IMAGE_PATH;
         Configuration cfg = new Configuration(Configuration.VERSION_2_3_25);
-        cfg.setDirectoryForTemplateLoading(new File("./src/templates"));
+        //cfg.setDirectoryForTemplateLoading(new File("./src/templates"));
+        cfg.setClassForTemplateLoading(this.getClass(), "/templates/");
         cfg.setDefaultEncoding("UTF-8");
         cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
         Map<String, Object> root = new HashMap<>();
@@ -453,7 +454,8 @@ public class MainPageController implements Initializable {
         String height = Integer.toString(GlobalSources.CANVAS_HEIGHT);
         String width = Integer.toString(GlobalSources.CANVAS_WIDTH);
         Configuration cfg = new Configuration(Configuration.VERSION_2_3_25);
-        cfg.setDirectoryForTemplateLoading(new File("./src/templates"));
+        //cfg.setDirectoryForTemplateLoading(new File("/templates/"));
+        cfg.setClassForTemplateLoading(this.getClass(), "/templates/");
         cfg.setDefaultEncoding("UTF-8");
         cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
         Map<String, Object> root = new HashMap<>();
@@ -522,22 +524,67 @@ public class MainPageController implements Initializable {
         tableViewCreatedObjects.refresh();
     }
 
-    private void jsFileExistenceChecking() throws IOException {
+//    private void jsFileExistenceChecking() throws IOException {
+//        File file = new File(GlobalSources.CURRENT_PATH + "/" + "script.js");
+//        if (!file.exists()) {
+//            File source = new File("/files/script.js");
+//            File destination = new File(GlobalSources.CURRENT_PATH + "/" + "script."
+//                    + SampleProjectPageController.getFileExtension(source));
+//            SampleProjectPageController.copyFileUsingStream(source, destination);
+//        }
+//        file = new File(GlobalSources.CURRENT_PATH + "/" + "jquery-3.6.0.min.js");
+//        if (!file.exists()) {
+//            File source = new File("/files/jquery-3.6.0.min.js");
+//            source = new File(source.getAbsolutePath());
+//            File destination = new File(GlobalSources.CURRENT_PATH + "/" + "jquery-3.6.0.min."
+//                    + SampleProjectPageController.getFileExtension(source));
+//            SampleProjectPageController.copyFileUsingStream(source, destination);
+//        }
+//    }
+
+    private void jsFileExistenceChecking() throws IOException, TemplateException {
         File file = new File(GlobalSources.CURRENT_PATH + "/" + "script.js");
         if (!file.exists()) {
-            File source = new File("src/files/script.js");
-            File destination = new File(GlobalSources.CURRENT_PATH + "/" + "script."
-                    + SampleProjectPageController.getFileExtension(source));
-            SampleProjectPageController.copyFileUsingStream(source, destination);
+            scriptJSCreating();
         }
         file = new File(GlobalSources.CURRENT_PATH + "/" + "jquery-3.6.0.min.js");
         if (!file.exists()) {
-            File source = new File("src/files/jquery-3.6.0.min.js");
-            File destination = new File(GlobalSources.CURRENT_PATH + "/" + "jquery-3.6.0.min."
-                    + SampleProjectPageController.getFileExtension(source));
-            SampleProjectPageController.copyFileUsingStream(source, destination);
+            jQueryJSCreating();
         }
     }
+
+    private void scriptJSCreating() throws IOException, TemplateException {
+        Configuration cfg = new Configuration(Configuration.VERSION_2_3_25);
+        cfg.setClassForTemplateLoading(this.getClass(), "/templates/");
+        cfg.setDefaultEncoding("UTF-8");
+        cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
+        Map<String, Object> root = new HashMap<>();
+        Template temp = cfg.getTemplate("script.ftlh");
+        FileWriter fileWriter = new FileWriter(GlobalSources.CURRENT_PATH + "/script.js");
+        BufferedWriter out1 = new BufferedWriter(fileWriter);
+        out1.write("");
+        out1.close();
+        Writer out = new OutputStreamWriter(new FileOutputStream(new File(GlobalSources.CURRENT_PATH + "/script.js")));
+        temp.process(root, out);
+        out.close();
+    }
+
+    private void jQueryJSCreating() throws IOException, TemplateException {
+        Configuration cfg = new Configuration(Configuration.VERSION_2_3_25);
+        cfg.setClassForTemplateLoading(this.getClass(), "/templates/");
+        cfg.setDefaultEncoding("UTF-8");
+        cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
+        Map<String, Object> root = new HashMap<>();
+        Template temp = cfg.getTemplate("jquery-3.6.0.min.ftlh");
+        FileWriter fileWriter = new FileWriter(GlobalSources.CURRENT_PATH + "/jquery-3.6.0.min.js");
+        BufferedWriter out1 = new BufferedWriter(fileWriter);
+        out1.write("");
+        out1.close();
+        Writer out = new OutputStreamWriter(new FileOutputStream(new File(GlobalSources.CURRENT_PATH + "/jquery-3.6.0.min.js")));
+        temp.process(root, out);
+        out.close();
+    }
+
 
     private void textSetting() {
         menuFile.setText(TextSources.MAIN_PAGE_MENU_FILE);

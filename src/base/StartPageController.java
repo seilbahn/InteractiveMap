@@ -108,6 +108,8 @@ public class StartPageController implements Initializable {
     }
 
     public void button2Click(ActionEvent actionEvent) throws Exception {
+        GlobalSources.CURRENT_PATH = textField1.getText();
+        TextSources.MAIN_PAGE_TITLE += GlobalSources.CURRENT_PATH;
         Stages.startPageClose();
         Stages.sampleProjectPageOpen();
     }
@@ -117,6 +119,7 @@ public class StartPageController implements Initializable {
         try {
             folder.mkdir();
             GlobalSources.CURRENT_PATH = textField1.getText();
+            TextSources.MAIN_PAGE_TITLE += GlobalSources.CURRENT_PATH;
             button2.setDisable(false);
         } catch (Throwable ex) {
             button2.setDisable(true);

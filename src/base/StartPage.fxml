@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane maxHeight="106.0" maxWidth="447.0" minHeight="106.0" minWidth="447.0" prefHeight="106.0" prefWidth="447.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base.StartPageController">
+<BorderPane maxHeight="106.0" maxWidth="447.0" minHeight="106.0" minWidth="447.0" prefHeight="106.0" prefWidth="447.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base.StartPageController">
    <center>
       <Pane maxHeight="81.0" maxWidth="445.0" minHeight="81.0" minWidth="407.0" prefHeight="81.0" prefWidth="445.0">
          <children>
